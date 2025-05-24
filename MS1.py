@@ -112,3 +112,25 @@ class DeskPet(QtWidgets.QLabel):
         self.currentImage = (self.currentImage + 1) % len(self.images)
         if hasattr(self, 'movingDirection'):
             self.movePet()
+
+    def showMenu(self, position):
+        menu = QtWidgets.QMenu()
+
+        menu.addAction("Default", self.startIdle)
+        menu.addAction("Walk", self.startWalk)
+        menu.addAction("Sleep", self.sleep)
+
+        menu.addSeparator()
+        menu.addAction("Hide", self.minimizeWindow)
+        menu.addAction("Exit", self.close)
+        menu.exec_(self.mapToGlobal(position))
+
+    def sleep(self):
+        self.setFixedSize(315, 500)
+        self.currentAction = self.sleep
+        self.images = self.loadImages("sleep")
+        self.currentImage = 0
+        self.timer.start(155)
+        self.moveSpeed = 0
+        self.movingDirection = 0
+

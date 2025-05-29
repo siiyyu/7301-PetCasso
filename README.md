@@ -58,11 +58,14 @@ Pet interactions (feeding, cleaning) + Effects
 🔍 Software Engineering Principles
 Single Responsibility Principle (SRP): MyMelody class handles pet logic, animation updates, and context menus separately.
 Open-Closed Principle (OCP): Designed for easy extension—new animations or features can be added without modifying core classes.
+
 🤝 Contributors
 Feng Siyu 
 Kim Nayoung
+
 📄 License
 For educational use only.
+
 🌸 Thank you for using PetCasso!
 ---
 

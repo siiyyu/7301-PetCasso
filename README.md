@@ -49,11 +49,11 @@ cd PetCasso
 ```
 ### 2️⃣ Create & activate virtual environment
 
-# macOS/Linux
+#### macOS/Linux
 python3 -m venv venv
 source venv/bin/activate
 
-# Windows
+#### Windows
 python -m venv venv
 .\venv\Scripts\activate
 

@@ -31,10 +31,15 @@ In today's fast-paced environment, people often feel overwhelmed with studies, w
 
 ### 📁 File Structure
 PetCasso/
+
 ├── MyMelody.py # Main pet logic with interactive animations
+
 ├── Deskpet/ # Animation image assets (idle, walk, sleep, etc.)
+
 ├── images/ # (Optional for future room customization)
+
 ├── layout.json # (Placeholder for room layout)
+
 ├── venv/ # Virtual environment (excluded from Git)
 
 ---

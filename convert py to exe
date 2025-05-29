@@ -1,0 +1,17 @@
+1.
+pyinstaller --onefile --windowed --icon=icon.ico main.py
+
+--onefile: bundles everything into one .exe
+
+--windowed: hides the console window (useful for GUI apps)
+
+--icon=icon.ico: sets your app icon
+
+Make sure icon.ico is in the same directory or provide the full path to it.
+
+2.
+To display the same icon in your app’s title bar or taskbar:
+
+self.setWindowIcon(QtGui.QIcon("icon.ico"))
+  
+Put this inside your main window or widget class (e.g., in initUI()).

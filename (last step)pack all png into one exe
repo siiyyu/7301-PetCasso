@@ -1,0 +1,23 @@
+1.
+pyinstaller --onefile --windowed --icon=icon.ico --add-data "Deskpet;Deskpet" MyMelody.py
+
+if future has more files: other data folders (e.g. sounds, JSON files), repeat the --add-data option like:
+--add-data "Deskpet;Deskpet" --add-data "sounds;sounds"
+
+2.
+PyInstaller stores bundled files in a temporary folder, so we plan to update image-loading code to support both dev mode and frozen (exe) mode.
+
+import sys
+import os
+
+def resource_path(relative_path):
+    """ Get absolute path to resource (works for dev and for PyInstaller) """
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
+
+
+Then replace:
+BASE_PATH = os.path.join(os.path.dirname(__file__), "Deskpet")
+With:
+BASE_PATH = resource_path("Deskpet")

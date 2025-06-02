@@ -49,7 +49,7 @@ PetCasso/
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/YourUsername/PetCasso.git
+git clone https://github.com/siiyyu/PetCasso.git
 cd PetCasso
 ```
 ### 2️⃣ Create & activate virtual environment

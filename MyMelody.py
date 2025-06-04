@@ -134,3 +134,40 @@ class DeskPet(QtWidgets.QLabel):
         self.moveSpeed = 0
         self.movingDirection = 0
 
+    def mousePressEvent(self, event):
+        if event.button() == QtCore.Qt.LeftButton:
+            self.dragging = True
+            self.isDragging = True
+            self.drag_position = event.globalPos() - self.pos()
+            self.prevAction = self.currentAction
+            event.accept()
+
+    def mouseMoveEvent(self, event):
+        if QtCore.Qt.LeftButton and self.dragging:
+            self.move(event.globalPos() - self.drag_position)
+            event.accept()
+
+    def mouseReleaseEvent(self, event):
+        if event.button() == QtCore.Qt.LeftButton:
+            self.dragging = False
+            self.isDragging = False
+            if self.currentAction == self.startWalk:
+                self.changeDirectionTimer.start()
+            self.prevAction()
+            event.accept()
+
+    def changeDirection(self):
+        if self.currentAction in [self.startIdle, self.sleep, self.clean, self.talk]:
+            return
+        if random.random() < 0.5:
+            self.movingDirection *= -1
+            self.timer.stop()
+            self.images = []
+            self.startWalk()
+
+app = QtWidgets.QApplication(sys.argv)
+pet = DeskPet()
+pet.show()
+sys.exit(app.exec_())
+
+
